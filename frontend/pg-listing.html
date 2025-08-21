@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Shala - Find PGs Nearby</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="stylesheet" href="assets/css/pg-listing.css"/>
+  <script src="assets/js/main.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="bar container">
+      <a href="index.html" class="logo-link">
+        <div class="logo">
+          <img src="assets/images/logo.png" alt="Student Shala Logo">
+          <h2>Student Shala</h2>
+        </div>
+      </a>
+      <!-- Desktop Menu -->
+      <nav class="menu">
+        <ul>
+          <li><a href="pg-listing.html" class="active">PG Near You</a></li>
+          <li><a href="about.html">About</a></li>
+          <li id="profile-link-li" style="display: none;"><a href="profile.html">Profile</a></li>
+        </ul>
+        <a href="login.html" id="login-link" class="btn">Login</a>
+      </nav>
+      <!-- Hamburger Button for Mobile -->
+      <button class="hamburger" id="hamburger-btn">
+        <i class='bx bx-menu'></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="pg-listing.html">PG Near You</a>
+      <a href="about.html">About</a>
+      <a href="profile.html" id="mobile-profile-link" style="display: none;">Profile</a>
+      <a href="login.html" id="mobile-login-link">Login</a>
+    </div>
+  </header>
+
+  <!-- Top controls -->
+<section class="map-controls container">
+    <div class="searchbar">
+      <i class='bx bx-search'></i>
+      <input class="input" id="searchInput" placeholder="Search PG by name..." aria-label="Search PG"/>
+    </div>
+    
+    <form id="mapFilters" class="filters-inline" aria-label="Map filters">
+      <!-- Location with Icon -->
+      <div class="filter-item">
+        <i class='bx bx-map'></i>
+        <input class="input" type="text" name="location" id="f-location" placeholder="Location">
+      </div>
+      
+      <!-- Budget with Icon -->
+      <div class="filter-item">
+        <i class='bx bx-rupee'></i>
+        <input class="input" type="number" name="budget" id="f-budget" placeholder="Budget (₹)">
+      </div>
+
+      <!-- Gender with Icon -->
+      <div class="filter-item">
+        <i class='bx bx-user'></i>
+        <select name="gender" id="f-gender">
+          <option value="">Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Unisex</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">Apply</button>
+    </form>
+</section>
+
+  <div id="map" role="region" aria-label="PG map"></div>
+
+  <footer class="footer">
+    <div class="content">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Review</a>
+    </div>
+  </footer>
+</body>
+</html>

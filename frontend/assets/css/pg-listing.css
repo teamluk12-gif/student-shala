@@ -1,0 +1,64 @@
+/* PG Listing Page Styles */
+
+.map-controls {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+.searchbar {
+    position: relative;
+    flex-grow: 1;
+}
+
+.searchbar .input {
+    padding-left: 40px;
+    width: 100%;
+}
+
+.searchbar i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+}
+
+.filters-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .map-controls {
+        flex-direction: column;
+        align-items: stretch; /* Make items take full width */
+    }
+
+    .filters-inline {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters-inline .input,
+    .filters-inline select,
+    .filters-inline .btn {
+        width: 100%;
+    }
+
+    #map {
+        height: 450px; /* Adjust map height for smaller screens */
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Shala</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/script.js" defer></script>
+</head>
+<body>
+
+  <!-- 🔹 Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Student Shala Logo">
+      <h2>Student Shala</h2>
+    </div>
+    <nav class="menu">
+      <a href="index.html" class="active">Home</a>
+      <a href="pg-listing.html">PG Near You</a>
+      <a href="#about">About</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <!-- 🔹 Hero Section -->
+  <section class="hero">
+    <h1>Where Students Find Homes, Not Just Rooms</h1>
+    <p>Find verified PGs with secure payment and roommate matching</p>
+    <img src="assets/images/banner.jpg" alt="PG Banner" style="max-width:100%; border-radius:12px; margin-top:20px;">
+  </section>
+
+  <!-- 🔹 Search Filters -->
+  <section class="filters">
+    <form>
+      <input type="text" placeholder="Location">
+      <input type="number" placeholder="Budget (₹)">
+      <select>
+        <option value="">Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Unisex</option>
+      </select>
+      <button type="submit" class="btn">Search</button>
+    </form>
+  </section>
+
+  <!-- 🔹 Features Row -->
+  <section class="features">
+    <div class="feature">
+      <img src="assets/icons/verified.png" alt="Verified" width="50">
+      <p>Verified Listings</p>
+    </div>
+    <div class="feature">
+      <img src="assets/icons/roommate.png" alt="Roommate" width="50">
+      <p>Roommate Match</p>
+    </div>
+    <div class="feature">
+      <img src="assets/icons/secure.png" alt="Secure" width="50">
+      <p>Secure Payment</p>
+    </div>
+  </section>
+
+  <!-- 🔹 PG Listing Section -->
+  <section class="listing-container">
+    <h1>PG Listings</h1>
+    <p style="text-align:center;">"Click. Book. Stay."</p>
+
+    <div class="card">
+      <img src="assets/images/pg1.jpg" alt="PG 1" style="width:100%; border-radius:10px;">
+      <h3>PG in Delhi</h3>
+      <p>₹6000 / month • WiFi • Food</p>
+    </div>
+
+    <div class="card">
+      <img src="assets/images/pg2.jpg" alt="PG 2" style="width:100%; border-radius:10px;">
+      <h3>PG in Bangalore</h3>
+      <p>₹7500 / month • AC • Meals</p>
+    </div>
+  </section>
+
+  <!-- 🔹 Footer -->
+  <footer class="footer">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact Us</a>
+    <a href="reviews.html">Review</a>
+  </footer>
+
+</body>
+</html>

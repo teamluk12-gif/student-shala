@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment - Student Shala</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body>
+    <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="logo"><img src="assets/image/logo.png"><h2>Student Shala</h2></div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="pg-listing.html">PG Listings</a>
+      <a href="booking.html">Bookings</a>
+      <a href="payment.html" class="active">Payment</a>
+      <a href="agreement.html">Agreement</a>
+      <a href="reviews.html">Reviews</a>
+    </nav>
+    <div class="search-login">
+      <div class="search-bar">
+        <input type="text" placeholder="Search PG nearby...">
+        <button class="btn">Search</button>
+      </div>
+      <a href="login.html" class="btn login-btn">Login</a>
+    </div>
+  </header>
+
+  <div class="container-page">
+    <h2 class="page-title">Payment</h2>
+    <div class="form" id="payBox">
+      <div id="summary"></div>
+      <div class="actions" style="margin-top:12px">
+        <button class="btn" id="payBtn">Pay & Generate Agreement</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const pgId = Number(params.get('pg'));
+    const pg = StudentShala.pgLocations.find(p => p.id === pgId);
+    const date = params.get('date');
+    const name = params.get('name');
+    const phone = params.get('phone');
+
+    document.getElementById('summary').innerHTML = `
+      <p><b>PG:</b> ${pg?.name || 'N/A'} (${pg?.area||''})</p>
+      <p><b>Rent (monthly):</b> ₹${pg?.rent || 'N/A'}</p>
+      <p><b>Move-in Date:</b> ${date}</p>
+      <p><b>Name:</b> ${name} | <b>Phone:</b> ${phone}</p>
+    `;
+
+    document.getElementById('payBtn').addEventListener('click', ()=>{
+      // mock payment success
+      const booking = {
+        id: Date.now(),
+        pgId: pg?.id, pgName: pg?.name, area: pg?.area, rent: pg?.rent,
+        date, name, phone, status: 'paid'
+      };
+      StudentShala.saveBookingMock(booking);
+      location.href = `agreement.html?bookingId=${booking.id}`;
+    });
+  </script>
+</body>
+</html>
