@@ -1,0 +1,60 @@
+/* Styles for My PGs and Add PG pages */
+
+.add-new-btn {
+    margin-left: auto;
+}
+
+.pg-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.pg-table th, .pg-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.pg-table th {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.pg-table .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    font-size: 20px;
+    text-decoration: none;
+}
+.action-btn.edit { color: var(--primary); }
+.action-btn.delete { color: #e74c3c; }
+
+/* Form Styles */
+.pg-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.form-group .input {
+    width: 100%;
+}
+
+.pg-form .btn {
+    align-self: flex-start;
+}

@@ -1,0 +1,143 @@
+/* ===== Global Base ===== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800;900&display=swap");
+
+:root{
+  --primary:#7494ec;
+  --primary-dark:#5b7be3;
+  --text:#222;
+  --muted:#666;
+  --bg:#ffffff;
+  --bg-soft:linear-gradient(98deg,#e2e2e2,#c9d6ff);
+  --radius:12px;
+  --shadow:0 4px 16px rgba(0,0,0,.12);
+}
+
+body.dark-theme {
+  --text: #eee;
+  --muted: #999;
+  --bg: #1a1a1a;
+  --bg-soft: linear-gradient(98deg, #2c2c2c, #1a233f);
+  --shadow: 0 4px 16px rgba(0,0,0,.3);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"Poppins",sans-serif;
+  color:var(--text);
+  background:var(--bg-soft);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Utilities */
+.container{max-width:1200px;margin-inline:auto;padding:0 20px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:8px;padding:12px 18px;border-radius:10px;border:none;cursor:pointer;
+  background:var(--primary);color:#fff;font-weight:600;transition:.25s;
+}
+.btn:hover{background:var(--primary-dark)}
+
+/* ===== Navbar ===== */
+.navbar{
+  position:sticky; top:0; z-index:1000;
+  background:var(--primary); color:#fff;
+  box-shadow:var(--shadow);
+}
+.navbar .bar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px;
+}
+.logo-link { text-decoration: none; }
+.logo{display:flex; align-items:center; gap:10px}
+.logo img{height:36px; width:36px; object-fit:contain}
+.logo h2{font-size:20px; font-weight:700; color:#fff}
+
+/* UL-based Menu Styles */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+.menu a {
+  color:#fff; text-decoration:none; font-weight:500;
+  padding:8px 12px; border-radius:8px; transition:.2s;
+}
+.menu a:not(.btn).active, .menu a:not(.btn):hover {
+    background:rgba(255,255,255,.2)
+}
+.menu .btn {
+    padding: 8px 16px;
+}
+
+/* Hamburger & Mobile Menu Styles */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary);
+    padding: 0 20px 10px 20px;
+}
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.mobile-menu.active {
+    display: flex;
+}
+
+/* Shared form inputs */
+.input, select{
+  padding:12px 14px;border:1px solid #ddd;border-radius:10px;
+  font:inherit;outline:none;transition:.2s;background:#fff;min-width:180px;
+  color: var(--text);
+}
+.input:focus, select:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(116,148,236,.15)}
+
+body.dark-theme .input, body.dark-theme select {
+    background-color: #2c2c2c;
+    border-color: #444;
+}
+
+/* ===== Footer ===== */
+.footer{
+  margin-top:60px;background:var(--primary);color:#fff;
+}
+.footer .content{
+  display:flex;align-items:center;justify-content:center;
+  gap:18px;padding:18px;text-align:center;flex-wrap:wrap;
+}
+.footer a{color:#fff;text-decoration:none}
+.footer a:hover{text-decoration:underline}
+
+/* Cards */
+.card{
+  background:var(--bg);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:16px;transition:.25s;
+}
+
+/* ===== Responsive ===== */
+@media (max-width:768px){
+  .menu { display: none; }
+  .hamburger { display: block; }
+  .logo h2{font-size:18px}
+}

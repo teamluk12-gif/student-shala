@@ -1,0 +1,73 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Occupancy Status Donut Chart
+    const occupancyCtx = document.getElementById('occupancyChart');
+    if (occupancyCtx) {
+        new Chart(occupancyCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Occupied', 'Vacant'],
+                datasets: [{
+                    label: 'Occupancy Status',
+                    data: [14, 6],
+                    backgroundColor: [
+                        '#7494ec', // --primary color
+                        '#e2e2e2'  // A light grey
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    }
+
+    // Monthly Income Bar Chart
+    const incomeCtx = document.getElementById('incomeChart');
+    if (incomeCtx) {
+        new Chart(incomeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Monthly Income (₹)',
+                    data: [20000, 22000, 28000, 30000, 25000, 35000],
+                    backgroundColor: '#7494ec', // --primary color
+                    borderRadius: 6,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '₹' + value / 1000 + 'k';
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+});
